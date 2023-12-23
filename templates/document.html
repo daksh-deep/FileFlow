@@ -1,0 +1,47 @@
+<!-- templates/document.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto mt-10">
+    <h1 class="text-3xl font-bold mb-8 text-gray-900">Download Files (server)</h1>
+    {% if files %}
+        <div class="overflow-x-auto">
+            <table class="w-full bg-white border border-gray-300 shadow-md rounded-lg">
+                <thead>
+                    <tr class="bg-gray-800 text-white" style="background-color: #123456;">
+                        <th class="py-3 px-6 border-b text-left">File Name</th>
+                        <th class="py-3 px-6 border-b text-left">Details</th>
+                        <th class="py-3 px-6 border-b text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for file in files %}
+                        <tr class="hover:bg-gray-100 transition duration-300">
+                            <td class="py-4 px-6 border-b text-left whitespace-nowrap">{{ file['name'] }}</td>
+                            <td class="py-4 px-6 border-b text-left whitespace-nowrap">
+                                <span class="block md:inline-block mb-2 md:mb-0 mr-2">
+                                    Type: {{ file['type'] }}
+                                </span>
+                                <span class="block md:inline-block mb-2 md:mb-0 mr-2">
+                                    Size: {{ file['size'] }}
+                                </span>
+                            </td>
+                            <td class="py-4 px-6 border-b text-left whitespace-nowrap">
+                                <a href="{{ url_for('download', filename=file['name']) }}" class="btn bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition duration-300">Download</a>
+                                <a href="{{ url_for('preview', filename=file['name']) }}" target="_blank" class="btn bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded transition duration-300">Preview</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="text-lg text-red-700">No files in the server to download</p>
+        <p class="text-lg text-red-700">ERROR 0000: Server Empty</p>
+
+        <br>
+    {% endif %}
+    <a href="{{ url_for('home') }}" class="btn mt-8 bg-yellow-500 hover:bg-indigo-700 text-white px-8 py-3 rounded transition duration-300 block text-center">Back to Home</a>
+</div>
+{% endblock %}
