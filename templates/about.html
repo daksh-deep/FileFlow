@@ -44,8 +44,16 @@
         <br>
         <div>
             <p>Author: Daksh Deep Saxena</p>
-            <p>Copyright: &#169 2023</p>
+            <p id="copyright"></p>
         </div>
+        <script>
+            // Get the current year
+            var currentYear = new Date().getFullYear();
+        
+            // Display the copyright information with the dynamic year
+            document.getElementById('copyright').innerHTML = 'Copyright: &#169 ' + currentYear;
+        </script>
+        
         <a href="{{ url_for('home') }}" class="btn mt-8 bg-yellow-500 hover:bg-yellow-700 text-white px-8 py-3 rounded transition duration-300 inline-block">Back to Home</a>
     </div>
 </div>
