@@ -1,7 +1,6 @@
 // static/script.js
 
 $(document).ready(function(){
-    // Initialize Materialize components if you're using any
     M.AutoInit();
 
     // Hide the error message initially
