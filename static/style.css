@@ -2,13 +2,50 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
+    background-image: url('resources/Custom-bg.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.container {
-    margin-top: 20px;
+.header {
+    font-size: 70px;    
+    text-align: center;
+    color: black;
+}
+
+/* for small displays : Like Mobiles Screens */
+@media only screen and (max-width: 1070px) {
+    .header {
+        font-size: 30px;
+        text-align: center;
+        color: black;
+    }
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('resources/Custom-bg-mobile.png');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+.heading {
+    text-align: center;
+    color: rgb(92, 92, 92);
+}
+
+.FileFlow {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-height: 150px;
+    max-width: 150px;
 }
 
 .btn {
@@ -23,53 +60,10 @@ table {
     margin-top: 20px;
 }
 
-.card {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.card-header {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 15px;
+.mobile-heading {
     text-align: center;
 }
 
-.card-body {
-    padding: 20px;
-}
-
-.card-table {
-    width: 100%;
-    border-collapse: collapse;
+.container {
     margin-top: 20px;
-}
-
-.card-table th,
-.card-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.card-table th {
-    background-color: #f2f2f2;
-}
-
-.card-button {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.card-button:hover {
-    background-color: #45a049;
 }

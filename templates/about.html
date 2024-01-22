@@ -1,62 +1,46 @@
-<!-- Include FontAwesome CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-
-
 <!-- templates/about.html -->
 
 {% extends 'base.html' %}
 
+{% block title %}About Us{% endblock %}
+
 {% block content %}
-<div class="flex items-center justify-center h-screen bg-gray-100">
-    <div class="text-center w-full max-w-md bg-white p-6 rounded-lg shadow-md">
-        <h1 class="text-3xl font-bold mb-4 background-color:gol">About Us</h1>
-        <p class="text-lg text-gray-700 mb-8">
-            Welcome to our file-sharing app! This platform was created with the following goals and technologies in mind:
-        </p>
-        <div class="text-left">
-            <h2 class="text-xl font-bold mb-2 text-gray-900">Technologies Used:</h2>
 
-            <!-- Construction of Display Table -->
-            <ul class="list-disc pl-4 mb-4">
-                <li class="text-yellow-600 flex items-center mb-2" style="color: #123456;">
-                    <i class="fab fa-css3 mr-2"></i> Tailwind CSS
-                </li>
-                <li class="text-yellow-600 flex items-center mb-2" style="color: #123456;">
-                    <i class="fab fa-python mr-2"></i> Flask (Python web framework)
-                </li>
-                <li class="text-yellow-600 flex items-center mb-2" style="color: #123456;">
-                    <i class="fab fa-js mr-2"></i> JavaScript 
-                </li>
-                <li class="text-yellow-600 flex items-center mb-2" style="color: #123456;">
-                    <i class="fab fa-html5 mr-2"></i> HTML5 
-                </li>
-            </ul>
-
-            <h2 class="text-xl font-bold mb-2 text-gray-900">About the Author:</h2>
-            <p class="text-gray-700 mb-4">
-                Meet the mind behind this project! Daksh is a passionate developer with expertise in Webdev and Backend development.
-                Daksh is pursuing Engineering in Information Technology from Manipal University Jaipur (from MAHE).
+        <div class="heading">
+            <h5>/* MEET THE AUTHOR */</h5>
+            <p style="color: rgb(123, 4, 4);">Hey There!</p>
+            <p class="header">
+                I'M DAKSH <br>
             </p>
-            <h2 class="text-xl font-bold mb-2 text-gray-900">Purpose of This Site:</h2>
-            <p class="text-gray-700">
-                Our mission is to provide a simple and efficient file-sharing platform for users. 
-                We believe in reliability, security and fast file transfers.
+            <p>
+                 I developed this web application to reduce <br>
+                 the mess of file transfer via cables. <br>
+                 Hope you liked it! &#128522
             </p>
         </div>
+
         <br>
-        <div>
-            <p>Author: Daksh Deep Saxena</p>
+        
+        <section class="mb-8 text-center">
+            <p>Connect with me on LinkedIn </p> <br>
+            <a href="https://www.linkedin.com/in/daksh-deep-791a1a298/" class="btn bg-blue-400 hover:bg-indigo-700 text-white px-3 py-3 rounded-xl" target="_blank">Connect</a>
+            <br> <br>
+            <p>Developed & designed by Daksh Deep</p>
             <p id="copyright"></p>
-        </div>
+        </section>
+
         <script>
             // Get the current year
             var currentYear = new Date().getFullYear();
         
-            // Display the copyright information with the dynamic year
+            // Display the copyright information with current year
             document.getElementById('copyright').innerHTML = 'Copyright: &#169 ' + currentYear;
         </script>
         
-        <a href="{{ url_for('home') }}" class="btn mt-8 bg-yellow-500 hover:bg-yellow-700 text-white px-8 py-3 rounded transition duration-300 inline-block">Back to Home</a>
+        <div class="text-center">
+            <a href="{{ url_for('home') }}" class="btn mt-8 bg-yellow-500 hover:bg-yellow-700 text-white px-8 py-3 rounded transition duration-300 inline-block">Back to Home</a>
+        </div>
     </div>
 </div>
+
 {% endblock %}
