@@ -33,8 +33,8 @@ First number in the version denotes the current iteration of Major Release. Seco
 Number denotes the iteration of Minor Release.
 
 ```v2.0```
-- Major Release: 1
-- Minor Release: 4
+- Major Release: 2
+- Minor Release: 0
 
 ### Conclusion
 Thank you for exploring our File Sharing Web Application. If you have any questions 
