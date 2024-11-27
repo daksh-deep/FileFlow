@@ -1,21 +1,69 @@
 {% extends 'base.html' %}
-
+{% block title %}FileFlow{% endblock %}
 {% block content %}
 
-<div class="heading">
-    <img class="FileFlow" src="static\resources\File-Flow.png" alt="File Flow"> <br>
-    <h3>/* THE UNIVERSAL FILE SHARING TOOL */</h3>
-    <p class="header">
-        The File Sharing client <br>
-        with the highest user<br>
-        satisfaction.</p>
+<div class="home-page">
+
+<div class="header">
+    <h1 style="background: linear-gradient(to right, rgb(81,129,236), rgb(210,103,120), rgb(213,103,119));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;">
+    Hello, <span id="user-name">User</span>
+    </h1>
+    <br>
+    <span class="auto-typed" style="color: rgb(68,70,71);"></span>
 </div>
 
-<div class="text-center">
-    <div style="display: flex; justify-content: center; gap: 1vw;">
-            <a href="{{ url_for('upload') }}" class="btn bg-yellow-500 hover:bg-indigo-700 text-white px-8 py-3 rounded-md">Upload</a>
-            <a href="{{ url_for('document') }}" class="btn bg-yellow-500 hover:bg-indigo-700 text-white px-8 py-3 rounded-md">Download</a>
-            <a href="{{ url_for('about') }}" class="btn bg-yellow-500 hover:bg-indigo-700 text-white px-8 py-3 rounded-md">About</a>
+  <!-- Load library from the CDN -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('.auto-typed', {
+      strings: ['Welcome to FileFlow.', 'Secure, Robust and Efficient!', 'Your privacy, our top priority.'],    
+      typeSpeed: 50,
+      backSpeed: 20,
+      loop : true,
+    });
+
+    var userName = getCookie("user_name");
+
+    if (!userName) {
+        userName = prompt("Please enter your name:");
+        if (userName != "" && userName != null) {
+            document.cookie = "user_name=" + userName + ";path=/";
+        }
+    }
+
+    document.getElementById("user-name").textContent = userName;
+
+  </script> 
+
+
+<br><br><br>
+
+<!-- <div class="card-container"> -->
+<div class="flex flex-col md:flex-row justify-center items-center gap-3">
+    <div class="card">
+        <h2>Upload</h2> <br>
+        <p>Securely store your files in the cloud with password protection, ensuring privacy and peace of mind for future access.</p><br> <br>
+        <a href="{{ url_for('upload') }}" class="btn bg-blue-700 hover:bg-blue-500 text-white hover:text-black px-8 py-2 rounded">Upload</a>
+    </div>
+    <div class="card">
+        <h2>Download</h2> <br>
+        <p>Introducing our revolutionary cloud file download engine for instant access. Effortlessly authenticate, securely download, and preview your files with unparalleled ease and speed.</p> <br>
+        <a href="{{ url_for('document') }}" class="btn bg-blue-700 hover:bg-blue-500 text-white hover:text-black px-8 py-2 rounded">Download</a>
+    </div>
+    <div class="card">
+        <h2>Creators</h2> <br>
+        <p>The creators are constantly working to keep your data safe by continually updating the structure and integrity of the system.</p><br> <br>
+        <a href="{{ url_for('about') }}" class="btn bg-blue-700 hover:bg-blue-500 text-white hover:text-black px-8 py-2 rounded">Say hi!</a>
     </div>
 </div>
+
+</div>
+
 {% endblock %}

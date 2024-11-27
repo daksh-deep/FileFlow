@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Admin Authentication{% endblock %}
+{% block content %}
+
+<div class="container mx-auto mt-8">
+    <div class="max-w-md mx-auto bg-gray-800 rounded-lg overflow-hidden shadow-lg p-8">
+        <h2 class="text-3xl font mb-4 text-gray-300 text-center">Admin Login</h2>
+        <form method="post" action="{{ url_for('admin_login') }}" class="mt-8">
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-200 mb-2">Email</label>
+                <input type="email" id="email" name="email" class="form-input rounded-md shadow-sm mt-1 block w-full bg-gray-700 text-white p-2" placeholder="Enter your email">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-200 mb-2">Password</label>
+                <input type="password" id="password" name="password" class="form-input rounded-md shadow-sm mt-1 block w-full bg-gray-700 text-white p-2" placeholder="Enter your password">
+            </div>
+
+            {% if error %}
+                <p class="text-red-500 mb-4">{{ error }}</p>
+            {% endif %}
+            <button type="submit" class="btn bg-blue-700 hover:bg-blue-500 text-white hover:text-black px-8 py-3 rounded-md">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

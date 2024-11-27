@@ -5,16 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <!-- Font Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Quicksand&display=swap" rel="stylesheet">
+    
+
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Standard styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
-</head>
-<body class="font-sans bg-gray-100">
+</head>     
+
+<body class="font-sans">
     <div class="min-h-screen flex items-center justify-center">
         <div class="container mx-auto p-4">
+            
+            <!-- Standard Nav Bar -->
+            <div class="navbar">
+                <div class="left">
+                    <span class="logo"><a href="{{ url_for('home') }}">FileFlow</a></span>
+                </div>
+                <div class="right">
+                    <div class="dropdown">
+                        <button class="btn admin-login-btn">Admin</button>
+                        <div class="dropdown-content">
+                            <a href="{{ url_for('admin_login') }}" class="btn admin-login-btn">Admin Login</a>
+                            <a href="{{ url_for('admin_change_password') }}" class="btn admin-login-btn">Change password</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             {% block content %}{% endblock %}
+            {% block extra_body %}{% endblock %}
         </div>
     </div>
 </body>

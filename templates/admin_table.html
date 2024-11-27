@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+
+<div class="container mx-auto mt-10 px-4">
+    <h1 class="text-4xl font-bold mb-8 text-gray-300 text-center">Admin Dashboard</h1>
+    {% if files_user_data %}
+    <h1 class="text-2xl  mb-8 text-gray-300 text-center">Welcome, {{ admin_name }}</h1>
+
+        <div class="overflow-x-auto">
+            <table class="w-full bg-gray-800 border border-gray-600 shadow-md rounded-lg divide-y divide-gray-600">
+                <thead>
+                    <tr class="bg-gray-700 text-gray-300">
+                        <th class="py-3 px-6 border-b text-left">File ID</th>
+                        <th class="py-3 px-6 border-b text-left">File Name</th>
+                        <th class="py-3 px-6 border-b text-left">Protected</th>
+                        <th class="py-3 px-6 border-b text-left">User ID</th>
+                        <th class="py-3 px-6 border-b text-left">User Email</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-600">
+                    {% for data in files_user_data %}
+                        <tr class="hover:bg-gray-700 transition duration-300">
+                            <td class="py-4 px-6 border-b text-left text-gray-200">{{ data.File_ID }}</td>
+                            <td class="py-4 px-6 border-b text-left text-gray-200">{{ data.File_Name }}</td>
+                            <td class="py-4 px-6 border-b text-left text-gray-200">{{ "Yes" if data.Protected else "No" }}</td>
+                            <td class="py-4 px-6 border-b text-left text-gray-200">{{ data.User_ID }}</td>
+                            <td class="py-4 px-6 border-b text-left text-gray-200">{{ data.Email }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="text-lg text-white text-center">No data available</p>
+    {% endif %}
+    <div class="flex justify-center mt-8">
+        <a href="{{ url_for('home') }}" class="btn bg-blue-700 hover:bg-blue-500 text-white hover:text-black px-8 py-3 rounded-md transition duration-300">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
